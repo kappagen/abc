@@ -1,7 +1,4 @@
-/*
-  Inspired by: "Login Page & Homepage"
-  By: Neo  Link: https://dribbble.com/shots/4485321-Login-Page-Homepage
-*/
+
 
 let usernameInput = document.querySelector(".username");
 let passwordInput = document.querySelector(".password");
@@ -47,14 +44,18 @@ usernameInput.addEventListener(
 );
 
 showPasswordButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
   if (passwordInput.type === "text") {
     passwordInput.type = "password";
+    showPasswordButton.textContent = "Show";
     document.querySelectorAll(".hand").forEach((hand) => {
       hand.classList.remove("peek");
       hand.classList.add("hide");
     });
   } else {
     passwordInput.type = "text";
+    showPasswordButton.textContent = "Hide";
     document.querySelectorAll(".hand").forEach((hand) => {
       hand.classList.remove("hide");
       hand.classList.add("peek");

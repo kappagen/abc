@@ -15,9 +15,9 @@ body {
   top: 50%;
   left: 50%;
   display: inline-block;
-  width: 100vw;
-  height: 100vh;
-  border-radius: 3px;
+  width: 50%;
+  height: 70%;
+  border-radius: 15px;
   transform: translate(-50%, -50%);
   overflow: hidden;
   background-image: linear-gradient(to top right, #f9a743, #f9db5f);
