@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-fontsize="md" data-contrast="normal">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IRHLMS — Recovery & Growth Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styl.css">
+<script src="jscript.js" defer></script>
+
+</head>
+<body>
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<aside class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-mark">♿</div>
+    <div>
+      <div class="sb-logo-text">IRHLMS</div>
+      <div class="sb-logo-sub">Recovery & Growth</div>
+    </div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-section">Overview</div>
+    <button class="sb-item active" data-page="dashboard">
+      <span class="sb-ico">⊞</span>
+      <div class="sb-dot" style="background:var(--blue)"></div>
+      Dashboard
+    </button>
+
+    <div class="sb-section" style="margin-top:8px">Recovery</div>
+    <button class="sb-item" data-page="recovery">
+      <span class="sb-ico">💪</span>
+      <div class="sb-dot" style="background:var(--teal)"></div>
+      Recovery Tracker
+    </button>
+    <button class="sb-item" data-page="physio">
+      <span class="sb-ico">🏃</span>
+      <div class="sb-dot" style="background:var(--emerald)"></div>
+      Physiotherapy
+    </button>
+
+    <div class="sb-section" style="margin-top:8px">Academic</div>
+    <button class="sb-item" data-page="learning">
+      <span class="sb-ico">📚</span>
+      <div class="sb-dot" style="background:var(--violet)"></div>
+      Learning Hub
+    </button>
+    <button class="sb-item" data-page="habits">
+      <span class="sb-ico">✅</span>
+      <div class="sb-dot" style="background:var(--amber)"></div>
+      Habit Manager <span class="sb-badge" id="hab-badge">0</span>
+    </button>
+    <button class="sb-item" data-page="medical">
+      <span class="sb-ico">🗂</span>
+      <div class="sb-dot" style="background:var(--gold)"></div>
+      Medical Records
+    </button>
+
+    <div class="sb-section" style="margin-top:8px">Support</div>
+    <button class="sb-item" data-page="therapy">
+      <span class="sb-ico">🫀</span>
+      <div class="sb-dot" style="background:var(--rose)"></div>
+      Therapy Sessions
+    </button>
+    <button class="sb-item" data-page="achievements">
+      <span class="sb-ico">🏆</span>
+      <div class="sb-dot" style="background:var(--gold)"></div>
+      Achievements
+    </button>
+
+    <div class="sb-section" style="margin-top:8px">System</div>
+    <button class="sb-item" data-page="feedback">
+      <span class="sb-ico">💬</span>
+      <div class="sb-dot" style="background:var(--teal)"></div>
+      Feedback
+    </button>
+    <button class="sb-item" data-page="settings">
+      <span class="sb-ico">⚙</span>
+      <div class="sb-dot" style="background:var(--txt3)"></div>
+      Settings
+    </button>
+  </nav>
+
+  <div class="sb-footer">
+    <div class="sb-user">
+      <div class="sb-avatar">YS</div>
+      <div>
+        <div class="sb-uname">Yug Suhagiya</div>
+        <div class="sb-urole">B24CS1073 · Week 9</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════ TOPBAR ═══════════ -->
+<main class="main">
+<div class="topbar">
+  <div class="tb-left">
+    <div class="tb-title" id="tb-title">Dashboard</div>
+    <div class="tb-sub" id="tb-sub">Sunday, 1 March 2026 · IIT Jodhpur</div>
+  </div>
+  <div class="tb-right">
+    <button class="tb-btn" id="notif-trigger">🔔</button>
+    <button class="tb-btn" id="theme-toggle">🌙</button>
+    <button class="tb-btn" id="settings-btn">⚙</button>
+  </div>
+</div>
+
+<!-- ══ NOTIFICATION PANEL ══ -->
+<div class="notif-panel" id="notif-panel">
+  <div class="np-head">
+    <div class="np-title">Notifications</div>
+    <div class="np-clear" id="notif-clear">Clear all</div>
+  </div>
+  <div class="np-item"><div class="np-ico ic-gold">🔥</div><div><div class="np-msg">21-day streak milestone reached! +200 bonus points awarded.</div><div class="np-time">2 min ago</div></div></div>
+  <div class="np-item"><div class="np-ico ic-teal">💊</div><div><div class="np-msg">Reminder: Core Stability session at 12:30 PM today.</div><div class="np-time">1 hr ago</div></div></div>
+  <div class="np-item"><div class="np-ico ic-violet">📚</div><div><div class="np-msg">Assignment due: Software Requirements — tomorrow 11:59 PM.</div><div class="np-time">3 hr ago</div></div></div>
+  <div class="np-item"><div class="np-ico ic-rose">🫀</div><div><div class="np-msg">Therapy session with Dr. Mehta confirmed for Thursday.</div><div class="np-time">Yesterday</div></div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: DASHBOARD
+══════════════════════════════════════════════════════ -->
+<div class="page active" id="page-dashboard">
+
+  <!-- Gradient welcome banner -->
+  <div class="grad-header grad-dashboard">
+    <div class="grad-title">Good morning, Yug 👋</div>
+    <div class="grad-sub">Week 9 of recovery · Keep going — every session counts.</div>
+    <div class="grad-meta">
+      <div class="grad-meta-item">🔥 <strong>21-day</strong> streak</div>
+      <div class="grad-meta-item">⭐ <strong>1,840</strong> points</div>
+      <div class="grad-meta-item">💪 <strong>72%</strong> recovery progress</div>
+      <div class="grad-meta-item">📚 <strong>3</strong> courses active</div>
+    </div>
+  </div>
+
+  <!-- Stat grid -->
+  <div class="grid-4" style="margin-bottom:20px">
+    <div class="stat-card">
+      <div><div class="stat-lbl">Recovery Score</div><div class="stat-val">72<span style="font-size:16px;color:var(--txt3)">%</span></div><div class="stat-sub">↑ 5% this week</div></div>
+      <div class="stat-ico ic-teal">💪</div>
+    </div>
+    <div class="stat-card">
+      <div><div class="stat-lbl">Habit Streak</div><div class="stat-val">21<span style="font-size:16px;color:var(--txt3)">🔥</span></div><div class="stat-sub">Personal best!</div></div>
+      <div class="stat-ico ic-amber">⚡</div>
+    </div>
+    <div class="stat-card">
+      <div><div class="stat-lbl">Avg GPA</div><div class="stat-val">8.4</div><div class="stat-sub">3 courses tracked</div></div>
+      <div class="stat-ico ic-violet">🎓</div>
+    </div>
+    <div class="stat-card">
+      <div><div class="stat-lbl">Sessions Done</div><div class="stat-val">18</div><div class="stat-sub">This month</div></div>
+      <div class="stat-ico ic-rose">🫀</div>
+    </div>
+  </div>
+
+  <!-- Charts row -->
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <!-- Recovery trend bar chart -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-title">Weekly Recovery</div><div class="card-sub">Exercise completion %</div></div>
+        <span class="badge badge-teal">This Month</span>
+      </div>
+      <div class="card-pad">
+        <div class="bar-chart" id="recovery-chart"></div>
+      </div>
+    </div>
+
+    <!-- Habit completion donut -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-title">Today's Habits</div><div class="card-sub">Completion breakdown</div></div>
+        <span class="badge badge-amber" id="hab-pct-badge">0%</span>
+      </div>
+      <div class="card-pad" style="display:flex;align-items:center;gap:24px">
+        <div class="donut" id="dash-donut">
+          <div class="donut-inner">
+            <div class="donut-val" id="donut-val">0</div>
+            <div class="donut-sub">of <span id="donut-tot">8</span></div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <div id="hab-legend" style="display:flex;flex-direction:column;gap:8px"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quick actions + Today's schedule -->
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <div class="card">
+      <div class="card-head"><div class="card-title">Quick Actions</div></div>
+      <div class="card-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <button class="btn btn-teal" data-page="physio" style="width:100%;justify-content:center">🏃 Log Physio</button>
+        <button class="btn btn-gold" data-page="habits" style="width:100%;justify-content:center">✅ Track Habits</button>
+        <button class="btn btn-violet" data-page="learning" style="width:100%;justify-content:center">📚 Study Session</button>
+        <button class="btn btn-outline" data-page="therapy" style="width:100%;justify-content:center">🫀 Log Pain</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-title">Today's Schedule</div><div class="card-sub">3 activities</div></div>
+      <div class="card-pad" style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:12px;align-items:center;padding:10px 12px;background:var(--teal-lt);border-radius:10px;border-left:3px solid var(--teal)">
+          <div style="font-size:12px;font-weight:700;color:var(--teal);width:50px;flex-shrink:0">08:00<div style="font-weight:400;color:var(--txt3)">AM</div></div>
+          <div><div style="font-size:13px;font-weight:500;color:var(--txt1)">Leg Strengthening</div><div style="font-size:11px;color:var(--txt3)">Physiotherapy · 45 min ✓</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;padding:10px 12px;background:var(--violet-lt);border-radius:10px;border-left:3px solid var(--violet)">
+          <div style="font-size:12px;font-weight:700;color:var(--violet);width:50px;flex-shrink:0">10:00<div style="font-weight:400;color:var(--txt3)">AM</div></div>
+          <div><div style="font-size:13px;font-weight:500;color:var(--txt1)">Data Structures</div><div style="font-size:11px;color:var(--txt3)">Study Session · 2 hrs</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;padding:10px 12px;background:var(--rose-lt);border-radius:10px;border-left:3px solid var(--rose)">
+          <div style="font-size:12px;font-weight:700;color:var(--rose);width:50px;flex-shrink:0">02:30<div style="font-weight:400;color:var(--txt3)">PM</div></div>
+          <div><div style="font-size:13px;font-weight:500;color:var(--txt1)">Dr. Sharma Follow-up</div><div style="font-size:11px;color:var(--txt3)">Therapy · 30 min</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Milestones -->
+  <div class="card">
+    <div class="card-head"><div class="card-title">Recovery Milestones</div><div class="card-sub">Spinal cord injury rehabilitation timeline</div></div>
+    <div class="card-pad">
+      <div class="grid-2">
+        <div class="milestone-track">
+          <div class="milestone-item">
+            <div class="milestone-dot done"></div>
+            <div class="milestone-txt">Hospital discharge</div>
+            <div class="milestone-date">Dec 15, 2025 ✓</div>
+          </div>
+          <div class="milestone-item">
+            <div class="milestone-dot done"></div>
+            <div class="milestone-txt">Started physiotherapy</div>
+            <div class="milestone-date">Jan 2, 2026 ✓</div>
+          </div>
+          <div class="milestone-item">
+            <div class="milestone-dot active"></div>
+            <div class="milestone-txt">Independent transfers</div>
+            <div class="milestone-date">Target: Mar 15, 2026 — In progress</div>
+          </div>
+          <div class="milestone-item">
+            <div class="milestone-dot future"></div>
+            <div class="milestone-txt">Return to campus</div>
+            <div class="milestone-date">Target: Apr 2026</div>
+          </div>
+        </div>
+        <div>
+          <div class="sec-lbl">Overall Progress</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:5px"><span>Mobility</span><span>78%</span></div><div class="prog-bg"><div class="prog-fill" style="width:78%;background:var(--teal)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:5px"><span>Strength</span><span>65%</span></div><div class="prog-bg"><div class="prog-fill" style="width:65%;background:var(--emerald)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:5px"><span>Pain Management</span><span>80%</span></div><div class="prog-bg"><div class="prog-fill" style="width:80%;background:var(--gold)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:5px"><span>Academic Continuity</span><span>72%</span></div><div class="prog-bg"><div class="prog-fill" style="width:72%;background:var(--violet)"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: RECOVERY TRACKER
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-recovery">
+  <div class="grad-header grad-recovery">
+    <div class="grad-title">💪 Recovery Tracker</div>
+    <div class="grad-sub">Monitor rehabilitation milestones and physical recovery metrics</div>
+    <div class="grad-meta">
+      <div class="grad-meta-item">📈 <strong>72%</strong> overall recovery</div>
+      <div class="grad-meta-item">📅 <strong>Week 9</strong> of rehabilitation</div>
+      <div class="grad-meta-item">✅ <strong>3/6</strong> milestones done</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-head"><div class="card-title">Rehabilitation Milestones</div><div class="card-sub">Spinal cord injury recovery timeline</div></div>
+      <div class="card-pad">
+        <div class="milestone-track">
+          <div class="milestone-item"><div class="milestone-dot done"></div><div class="milestone-txt">Acute care completed</div><div class="milestone-date">Dec 2025 ✓</div></div>
+          <div class="milestone-item"><div class="milestone-dot done"></div><div class="milestone-txt">PT programme started</div><div class="milestone-date">Jan 2, 2026 ✓</div></div>
+          <div class="milestone-item"><div class="milestone-dot done"></div><div class="milestone-txt">Upper body independence</div><div class="milestone-date">Feb 10, 2026 ✓</div></div>
+          <div class="milestone-item"><div class="milestone-dot active"></div><div class="milestone-txt">Wheelchair transfers — independent</div><div class="milestone-date">Target: Mar 15, 2026 — In progress</div></div>
+          <div class="milestone-item"><div class="milestone-dot future"></div><div class="milestone-txt">Supported standing exercises</div><div class="milestone-date">Target: Apr 2026</div></div>
+          <div class="milestone-item"><div class="milestone-dot future"></div><div class="milestone-txt">Return to campus life</div><div class="milestone-date">Target: May 2026</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-title">Recovery Metrics</div><div class="card-sub">Updated weekly by physiotherapist</div></div>
+      <div class="card-pad" style="display:flex;flex-direction:column;gap:14px">
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>🦾 Upper Limb Strength</span><span style="font-weight:600;color:var(--teal)">82%</span></div><div class="prog-bg"><div class="prog-fill" style="width:82%;background:linear-gradient(90deg,var(--teal),#6DD5C0)"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>🦿 Lower Limb Response</span><span style="font-weight:600;color:var(--emerald)">48%</span></div><div class="prog-bg"><div class="prog-fill" style="width:48%;background:linear-gradient(90deg,var(--emerald),#70D46A)"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>⚖️ Balance & Stability</span><span style="font-weight:600;color:var(--gold)">67%</span></div><div class="prog-bg"><div class="prog-fill" style="width:67%;background:linear-gradient(90deg,var(--gold),var(--gold-lt))"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>🧘 Flexibility / ROM</span><span style="font-weight:600;color:var(--violet)">74%</span></div><div class="prog-bg"><div class="prog-fill" style="width:74%;background:linear-gradient(90deg,var(--violet),#A880F0)"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>😮‍💨 Respiratory Function</span><span style="font-weight:600;color:var(--rose)">91%</span></div><div class="prog-bg"><div class="prog-fill" style="width:91%;background:linear-gradient(90deg,var(--rose),#F08098)"></div></div></div>
+        <div style="margin-top:4px;padding:12px;background:var(--teal-lt);border-radius:10px;border-left:3px solid var(--teal)">
+          <div style="font-size:12px;font-weight:600;color:var(--teal)">Dr. Mehta's Note (Feb 28)</div>
+          <div style="font-size:12px;color:var(--txt2);margin-top:4px;line-height:1.5">Excellent progress on upper body. Continue core stabilisation 3×/week. Targeting wheelchair independence by mid-March.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="card-title">Weekly Recovery Summary</div><div class="card-sub">Week 9 · Feb 24 – Mar 1, 2026</div></div>
+    <div class="card-pad">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px">
+        <div style="text-align:center;padding:16px 12px;background:var(--teal-lt);border-radius:12px;border:1px solid rgba(45,184,154,0.2)"><div style="font-size:26px;font-weight:700;color:var(--teal)">14</div><div style="font-size:11px;color:var(--txt3);margin-top:4px">Exercises<br>Completed</div></div>
+        <div style="text-align:center;padding:16px 12px;background:var(--emerald-lt);border-radius:12px;border:1px solid rgba(52,168,83,0.2)"><div style="font-size:26px;font-weight:700;color:var(--emerald)">3</div><div style="font-size:11px;color:var(--txt3);margin-top:4px">PT Sessions<br>Attended</div></div>
+        <div style="text-align:center;padding:16px 12px;background:var(--gold-pale);border-radius:12px;border:1px solid rgba(234,172,87,0.2)"><div style="font-size:26px;font-weight:700;color:var(--gold)">92%</div><div style="font-size:11px;color:var(--txt3);margin-top:4px">Completion<br>Rate</div></div>
+        <div style="text-align:center;padding:16px 12px;background:var(--violet-lt);border-radius:12px;border:1px solid rgba(124,92,191,0.2)"><div style="font-size:26px;font-weight:700;color:var(--violet)">+5%</div><div style="font-size:11px;color:var(--txt3);margin-top:4px">Recovery<br>Improvement</div></div>
+        <div style="text-align:center;padding:16px 12px;background:var(--rose-lt);border-radius:12px;border:1px solid rgba(224,84,112,0.2)"><div style="font-size:26px;font-weight:700;color:var(--rose)">2</div><div style="font-size:11px;color:var(--txt3);margin-top:4px">Missed<br>Sessions</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: PHYSIOTHERAPY
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-physio">
+  <div class="grad-header" style="background:linear-gradient(135deg,#1A4D2A,#34A853)">
+    <div class="grad-title">🏃 Physiotherapy</div>
+    <div class="grad-sub">Today's exercise plan · 3 sessions scheduled</div>
+    <div class="grad-meta">
+      <div class="grad-meta-item">✓ <strong>2</strong> completed</div>
+      <div class="grad-meta-item">⏳ <strong>1</strong> pending</div>
+      <div class="grad-meta-item">📋 <strong>18</strong> total this month</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <div class="card">
+      <div class="card-head"><div class="card-title">Today's Exercise Plan</div><button class="btn btn-outline btn-sm" id="add-physio-btn">+ Add</button></div>
+      <div class="card-pad" id="ex-list">
+        <div class="ex-item done" onclick="toggleEx(this)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="ex-check">✓</div>
+            <div><div class="ex-name">Leg Strengthening</div><div class="ex-meta">08:00 AM · 3 × 12 reps · Resistance band</div></div>
+          </div>
+        </div>
+        <div class="ex-item done" onclick="toggleEx(this)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="ex-check">✓</div>
+            <div><div class="ex-name">Core Stability Circuit</div><div class="ex-meta">12:30 PM · Plank 30s × 3 · Bridge 15 × 3</div></div>
+          </div>
+        </div>
+        <div class="ex-item" onclick="toggleEx(this)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="ex-check"></div>
+            <div><div class="ex-name">Upper Body Stretch</div><div class="ex-meta">06:00 PM · 20 min flexibility routine</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weekly exercise chart -->
+    <div class="card">
+      <div class="card-head"><div class="card-title">Weekly Exercise Log</div><div class="card-sub">Sessions per day</div></div>
+      <div class="card-pad">
+        <div class="bar-chart" id="ex-chart"></div>
+        <div style="margin-top:14px;display:flex;gap:16px">
+          <div><div style="font-size:10px;color:var(--txt3)">This week</div><div style="font-size:20px;font-weight:700;color:var(--emerald)">14</div></div>
+          <div><div style="font-size:10px;color:var(--txt3)">Monthly avg</div><div style="font-size:20px;font-weight:700;color:var(--txt1)">18</div></div>
+          <div><div style="font-size:10px;color:var(--txt3)">Completion rate</div><div style="font-size:20px;font-weight:700;color:var(--gold)">92%</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Add session form -->
+  <div class="card">
+    <div class="card-head"><div class="card-title">Log New Session</div></div>
+    <div class="card-pad">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:10px">
+        <input class="inp" id="ex-name-inp" placeholder="Exercise name"/>
+        <input class="inp" id="ex-time-inp" placeholder="Time (e.g. 09:00 AM)"/>
+        <input class="inp" id="ex-desc-inp" placeholder="Sets / reps / duration"/>
+      </div>
+      <button class="btn btn-gold" id="add-ex-btn">Add to Plan</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: LEARNING HUB
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-learning">
+  <div class="grad-header grad-learning">
+    <div class="grad-title">📚 Learning Hub</div>
+    <div class="grad-sub">Manage courses, assignments, and study sessions</div>
+    <div class="grad-meta">
+      <div class="grad-meta-item">📖 <strong>3</strong> active courses</div>
+      <div class="grad-meta-item">📝 <strong>2</strong> pending assignments</div>
+      <div class="grad-meta-item">⭐ <strong>8.4</strong> avg GPA</div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="tab-courses">Courses</button>
+    <button class="tab-btn" data-tab="tab-manage">Manage Courses</button>
+    <button class="tab-btn" data-tab="tab-assignments">Assignments</button>
+    <button class="tab-btn" data-tab="tab-timer">Study Timer</button>
+  </div>
+
+  <!-- Courses tab -->
+  <div id="tab-courses">
+
+    <!-- Summary bar -->
+    <div style="display:flex;gap:14px;margin-bottom:20px">
+      <div class="card card-pad" style="flex:1;display:flex;align-items:center;gap:14px">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--violet-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📖</div>
+        <div><div style="font-size:11px;color:var(--txt3);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Active Courses</div><div style="font-size:22px;font-weight:700;color:var(--txt1)">3</div></div>
+      </div>
+      <div class="card card-pad" style="flex:1;display:flex;align-items:center;gap:14px">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">⭐</div>
+        <div><div style="font-size:11px;color:var(--txt3);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Avg GPA</div><div style="font-size:22px;font-weight:700;color:var(--txt1)">8.4</div></div>
+      </div>
+      <div class="card card-pad" style="flex:1;display:flex;align-items:center;gap:14px">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--rose-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📝</div>
+        <div><div style="font-size:11px;color:var(--txt3);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Pending Tasks</div><div style="font-size:22px;font-weight:700;color:var(--txt1)">2</div></div>
+      </div>
+      <div class="card card-pad" style="flex:1;display:flex;align-items:center;gap:14px">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--emerald-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✅</div>
+        <div><div style="font-size:11px;color:var(--txt3);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Credits Enrolled</div><div style="font-size:22px;font-weight:700;color:var(--txt1)">11</div></div>
+      </div>
+    </div>
+
+    <!-- 3-col course cards grid -->
+    <div class="grid-3" style="margin-bottom:20px">
+
+      <!-- Course 1 -->
+      <div class="card" style="transition:all var(--tr)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--violet),#A880F0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">💻</div>
+          <span class="badge badge-violet">Active</span>
+        </div>
+        <div class="card-pad">
+          <div style="font-size:14px;font-weight:700;color:var(--txt1);margin-bottom:3px">Software Engineering</div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:4px">CSL2060 · Prof. Rajiv Kumar</div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:14px">4 Credits · B.Tech 2nd Year</div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>Course Progress</span><span style="font-weight:700;color:var(--violet)">78%</span></div>
+          <div class="prog-bg" style="margin-bottom:14px"><div class="prog-fill" style="width:78%;background:linear-gradient(90deg,var(--violet),#A880F0)"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+            <div style="padding:8px 10px;background:var(--surface2);border-radius:8px;text-align:center">
+              <div style="font-size:10px;color:var(--txt3)">Current Grade</div>
+              <div style="font-size:16px;font-weight:700;color:var(--emerald)">A</div>
+            </div>
+            <div style="padding:8px 10px;background:var(--surface2);border-radius:8px;text-align:center">
+              <div style="font-size:10px;color:var(--txt3)">Attendance</div>
+              <div style="font-size:16px;font-weight:700;color:var(--teal)">88%</div>
+            </div>
+          </div>
+          <div style="padding:9px 11px;background:var(--rose-lt);border-radius:8px;border-left:3px solid var(--rose);font-size:11px;color:var(--txt2);margin-bottom:12px">📝 SRS v2.0 due <strong>Tomorrow</strong></div>
+          <div style="display:flex;gap:8px">
+            <span class="badge badge-blue">Next: Mar 5</span>
+            <span class="badge badge-violet">SRS Project</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="card" style="transition:all var(--tr)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#60A5FA);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🌲</div>
+          <span class="badge badge-amber">In Progress</span>
+        </div>
+        <div class="card-pad">
+          <div style="font-size:14px;font-weight:700;color:var(--txt1);margin-bottom:3px">Data Structures & Algorithms</div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:4px">CSL2030 · Prof. Anita Singh</div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:14px">4 Credits · B.Tech 2nd Year</div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>Course Progress</span><span style="font-weight:700;color:var(--blue)">65%</span></div>
+          <div class="prog-bg" style="margin-bottom:14px"><div class="prog-fill" style="width:65%;background:linear-gradient(90deg,var(--blue),#60A5FA)"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+            <div style="padding:8px 10px;background:var(--surface2);border-radius:8px;text-align:center">
+              <div style="font-size:10px;color:var(--txt3)">Current Grade</div>
+              <div style="font-size:16px;font-weight:700;color:var(--amber)">B+</div>
+            </div>
+            <div style="padding:8px 10px;background:var(--surface2);border-radius:8px;text-align:center">
+              <div style="font-size:10px;color:var(--txt3)">Attendance</div>
+              <div style="font-size:16px;font-weight:700;color:var(--teal)">82%</div>
+            </div>
+          </div>
+          <div style="padding:9px 11px;background:var(--amber-lt);border-radius:8px;border-left:3px solid var(--amber);font-size:11px;color:var(--txt2);margin-bottom:12px">📝 Algorithm Analysis due <strong>Mar 8</strong></div>
+          <div style="display:flex;gap:8px">
+            <span class="badge badge-blue">Next: Mar 3</span>
+            <span class="badge badge-blue">Trees & Graphs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="card" style="transition:all var(--tr)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--teal),#6DD5C0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">📊</div>
+          <span class="badge badge-green">Near Complete</span>
+        </div>
+        <div class="card-pad">
+          <div style="font-size:14px;font-weight:700;color:var(--txt1);margin-bottom:3px">Probability & Statistics</div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:4px">MAL2010 · Prof. Ranjit Das</div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:14px">3 Credits · B.Tech 2nd Year</div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:6px"><span>Course Progress</span><span style="font-weight:700;color:var(--teal)">90%</span></div>
+          <div class="prog-bg" style="margin-bottom:14px"><div class="prog-fill" style="width:90%;background:linear-gradient(90deg,var(--teal),#6DD5C0)"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+            <div style="padding:8px 10px;background:var(--surface2);border-radius:8px;text-align:center">
+              <div style="font-size:10px;color:var(--txt3)">Current Grade</div>
+              <div style="font-size:16px;font-weight:700;color:var(--emerald)">A+</div>
+            </div>
+            <div style="padding:8px 10px;background:var(--surface2);border-radius:8px;text-align:center">
+              <div style="font-size:10px;color:var(--txt3)">Attendance</div>
+              <div style="font-size:16px;font-weight:700;color:var(--teal)">95%</div>
+            </div>
+          </div>
+          <div style="padding:9px 11px;background:var(--teal-lt);border-radius:8px;border-left:3px solid var(--teal);font-size:11px;color:var(--txt2);margin-bottom:12px">✅ Problem Set 5 submitted Feb 27</div>
+          <div style="display:flex;gap:8px">
+            <span class="badge badge-blue">Final: Mar 20</span>
+            <span class="badge badge-teal">Strong</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Accommodations full-width below -->
+    <div class="card">
+      <div class="card-head"><div class="card-title">♿ Accessibility Accommodations</div><div class="card-sub">Valid through May 2026 · Approved by Dean's Office</div></div>
+      <div class="card-pad">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+          <div style="padding:14px;background:var(--violet-lt);border-radius:10px;border:1px solid rgba(124,92,191,0.15);text-align:center">
+            <div style="font-size:22px;margin-bottom:6px">📝</div>
+            <div style="font-size:12px;font-weight:600;color:var(--violet)">Extended Time</div>
+            <div style="font-size:11px;color:var(--txt3);margin-top:3px">1.5× on all exams</div>
+          </div>
+          <div style="padding:14px;background:var(--violet-lt);border-radius:10px;border:1px solid rgba(124,92,191,0.15);text-align:center">
+            <div style="font-size:22px;margin-bottom:6px">💻</div>
+            <div style="font-size:12px;font-weight:600;color:var(--violet)">Digital Submission</div>
+            <div style="font-size:11px;color:var(--txt3);margin-top:3px">All assignments online</div>
+          </div>
+          <div style="padding:14px;background:var(--violet-lt);border-radius:10px;border:1px solid rgba(124,92,191,0.15);text-align:center">
+            <div style="font-size:22px;margin-bottom:6px">🎙</div>
+            <div style="font-size:12px;font-weight:600;color:var(--violet)">Lecture Recordings</div>
+            <div style="font-size:11px;color:var(--txt3);margin-top:3px">All sessions recorded</div>
+          </div>
+          <div style="padding:14px;background:var(--violet-lt);border-radius:10px;border:1px solid rgba(124,92,191,0.15);text-align:center">
+            <div style="font-size:22px;margin-bottom:6px">🏠</div>
+            <div style="font-size:12px;font-weight:600;color:var(--violet)">Hybrid Attendance</div>
+            <div style="font-size:11px;color:var(--txt3);margin-top:3px">Attend remotely allowed</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:11px 14px;background:var(--gold-pale);border-radius:9px;border-left:3px solid var(--gold);font-size:12px;color:var(--txt2)">⚠ Accommodation valid through <strong>May 2026</strong>. Contact the Dean's Office to renew before semester end.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Manage Courses tab -->
+  <div id="tab-manage" style="display:none">
+    <div class="grid-2">
+
+      <!-- Add new course form -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">Add New Course</div><div class="card-sub">Register a course to track</div></div>
+        <div class="card-pad" style="display:flex;flex-direction:column;gap:12px">
+          <div><div style="font-size:11px;font-weight:600;color:var(--txt3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em">Course Code</div><input class="inp" id="mc-code" placeholder="e.g. CSL2090"/></div>
+          <div><div style="font-size:11px;font-weight:600;color:var(--txt3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em">Course Name</div><input class="inp" id="mc-name" placeholder="e.g. Operating Systems"/></div>
+          <div style="display:flex;gap:10px">
+            <div style="flex:1"><div style="font-size:11px;font-weight:600;color:var(--txt3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em">Professor</div><input class="inp" id="mc-prof" placeholder="Prof. Name"/></div>
+            <div style="width:80px"><div style="font-size:11px;font-weight:600;color:var(--txt3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em">Credits</div><input class="inp" id="mc-cred" type="number" min="1" max="6" placeholder="4"/></div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <div style="flex:1">
+              <div style="font-size:11px;font-weight:600;color:var(--txt3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em">Status</div>
+              <select class="sel" id="mc-status" style="width:100%">
+                <option value="Active">Active</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Near Complete">Near Complete</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+            <div style="flex:1">
+              <div style="font-size:11px;font-weight:600;color:var(--txt3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em">Current Grade</div>
+              <select class="sel" id="mc-grade" style="width:100%">
+                <option>A+</option><option>A</option><option>B+</option>
+                <option>B</option><option>C+</option><option>C</option><option>F</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-violet" id="add-course-btn" style="width:100%;justify-content:center;padding:11px">+ Add Course</button>
+        </div>
+      </div>
+
+      <!-- Editable course list -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">Manage Existing Courses</div><div class="card-sub">Edit, update, or remove</div></div>
+        <div id="mc-list" style="display:flex;flex-direction:column;gap:0"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Assignments tab -->
+  <div id="tab-assignments" style="display:none">
+    <div class="card">
+      <div class="card-head"><div class="card-title">Assignment Tracker</div><button class="btn btn-violet btn-sm">+ Add Assignment</button></div>
+      <div class="card-pad" style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 16px;background:var(--rose-lt);border:1px solid rgba(224,84,112,0.2);border-radius:12px">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--rose);flex-shrink:0"></div>
+          <div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--txt1)">SRS Document v2.0</div><div style="font-size:11px;color:var(--txt3)">CSL2060 · Due Tomorrow 11:59 PM</div></div>
+          <span class="badge badge-rose">High Priority</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 16px;background:var(--amber-lt);border:1px solid rgba(245,158,11,0.2);border-radius:12px">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
+          <div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--txt1)">Algorithm Analysis — Trees</div><div style="font-size:11px;color:var(--txt3)">CSL2030 · Due Mar 8</div></div>
+          <span class="badge badge-amber">Medium</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;opacity:0.7">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--emerald);flex-shrink:0"></div>
+          <div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--txt1);text-decoration:line-through">Probability Problem Set 5</div><div style="font-size:11px;color:var(--txt3)">MAL2010 · Submitted Feb 27 ✓</div></div>
+          <span class="badge badge-green">Done</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Study Timer tab -->
+  <div id="tab-timer" style="display:none">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-head"><div class="card-title">Pomodoro Study Timer</div><div class="card-sub">Focus intervals with breaks</div></div>
+        <div class="card-pad" style="text-align:center">
+          <div class="pomo-ring" id="pomo-ring">
+            <div class="pomo-inner">
+              <div class="pomo-time" id="pomo-time">25:00</div>
+              <div class="pomo-lbl" id="pomo-lbl">FOCUS</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:10px;margin-bottom:16px">
+            <button class="btn btn-violet btn-sm" id="pomo-start">▶ Start</button>
+            <button class="btn btn-outline btn-sm" id="pomo-reset">↺ Reset</button>
+          </div>
+          <div style="display:flex;justify-content:center;gap:8px">
+            <button class="btn btn-outline btn-sm" data-pomo="25|FOCUS">25m Focus</button>
+            <button class="btn btn-outline btn-sm" data-pomo="5|SHORT BREAK">5m Break</button>
+            <button class="btn btn-outline btn-sm" data-pomo="15|LONG BREAK">15m Break</button>
+          </div>
+          <div style="margin-top:16px;font-size:12px;color:var(--txt3)">Completed today: <strong id="pomo-count" style="color:var(--violet)">0</strong> sessions</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div class="card-title">Study Log</div><div class="card-sub">Today's sessions</div></div>
+        <div class="card-pad" id="study-log" style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:13px;color:var(--txt3);text-align:center;padding:20px">No sessions logged yet. Start the timer!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: HABIT MANAGER
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-habits">
+  <div class="grad-header grad-habits">
+    <div class="grad-title">✅ Habit Manager</div>
+    <div class="grad-sub">Build consistency with the Seinfeld "Don't Break the Chain" method</div>
+    <div class="grad-meta">
+      <div class="grad-meta-item">🔥 <strong>21-day</strong> best streak</div>
+      <div class="grad-meta-item">⭐ <strong>1,840</strong> points earned</div>
+    </div>
+  </div>
+
+  <!-- Streak banner + week grid -->
+  <div class="card" style="margin-bottom:20px">
+    <div style="padding:22px 28px;background:linear-gradient(135deg,var(--amber-lt),rgba(241,218,114,0.08));border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="font-size:52px;animation:flicker 2s ease-in-out infinite">🔥</div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:48px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1">21</div>
+          <div style="font-size:13px;color:var(--txt2);margin-top:2px">Day Streak — Personal Best!</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:32px;flex-wrap:wrap">
+          <div style="text-align:center"><div style="font-size:26px;font-weight:700;color:var(--amber)">1,840</div><div style="font-size:11px;color:var(--txt3)">Total Points</div></div>
+          <div style="text-align:center"><div style="font-size:26px;font-weight:700;color:var(--teal)" id="done-today-count">0</div><div style="font-size:11px;color:var(--txt3)">Done Today</div></div>
+          <div style="text-align:center"><div style="font-size:26px;font-weight:700;color:var(--emerald)">82%</div><div style="font-size:11px;color:var(--txt3)">This Week</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-pad">
+      <div class="sec-lbl">This Week</div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:10px;text-align:center">
+        <div><div style="font-size:9px;color:var(--txt3);margin-bottom:6px">MON</div><div style="width:100%;aspect-ratio:1;border-radius:9px;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(245,158,11,0.3)">✓</div></div>
+        <div><div style="font-size:9px;color:var(--txt3);margin-bottom:6px">TUE</div><div style="width:100%;aspect-ratio:1;border-radius:9px;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(245,158,11,0.3)">✓</div></div>
+        <div><div style="font-size:9px;color:var(--txt3);margin-bottom:6px">WED</div><div style="width:100%;aspect-ratio:1;border-radius:9px;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(245,158,11,0.3)">✓</div></div>
+        <div><div style="font-size:9px;color:var(--txt3);margin-bottom:6px">THU</div><div style="width:100%;aspect-ratio:1;border-radius:9px;background:rgba(224,84,112,0.1);border:1.5px solid rgba(224,84,112,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--rose);font-weight:700">✗</div></div>
+        <div><div style="font-size:9px;color:var(--txt3);margin-bottom:6px">FRI</div><div style="width:100%;aspect-ratio:1;border-radius:9px;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(245,158,11,0.3)">✓</div></div>
+        <div><div style="font-size:9px;color:var(--txt3);margin-bottom:6px">SAT</div><div style="width:100%;aspect-ratio:1;border-radius:9px;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(245,158,11,0.3)">✓</div></div>
+        <div><div style="font-size:9px;color:var(--txt3);margin-bottom:6px">SUN</div><div style="width:100%;aspect-ratio:1;border-radius:9px;border:2px solid var(--amber);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--amber);font-weight:700">·</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Habits by category -->
+  <div class="grid-2">
+    <div>
+      <div class="sec-lbl">💊 Medical</div>
+      <div id="habits-medical"></div>
+      <div class="sec-lbl" style="margin-top:16px">🏃 Physical</div>
+      <div id="habits-physical"></div>
+    </div>
+    <div>
+      <div class="sec-lbl">🧠 Mental / Academic</div>
+      <div id="habits-mental"></div>
+      <div style="margin-top:16px;display:flex;gap:10px">
+        <select class="sel" id="new-hab-cat" style="width:120px">
+          <option value="medical">💊 Medical</option>
+          <option value="physical">🏃 Physical</option>
+          <option value="mental" selected>🧠 Mental</option>
+        </select>
+        <input class="inp" id="new-hab-inp" placeholder="Add new habit…" style="flex:1" onkeydown="if(event.key==='Enter')addHab()"/>
+        <button class="btn btn-gold" id="add-hab-btn">+ Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: MEDICAL RECORDS
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-medical">
+  <div class="grad-header grad-settings" style="background:linear-gradient(135deg,#3A3000,var(--gold))">
+    <div class="grad-title">🗂 Medical Records</div>
+    <div class="grad-sub">Secure storage of medical documents and reports</div>
+  </div>
+
+  <div style="display:flex;gap:12px;margin-bottom:20px">
+    <div style="display:flex;align-items:center;gap:8px;flex:1;background:var(--inp);border:1px solid var(--border);border-radius:9px;padding:9px 14px">
+      <span style="font-size:14px">🔍</span>
+      <input class="inp" style="border:none;background:transparent;padding:0" placeholder="Search records…" id="rec-search" oninput="filterRec()" />
+    </div>
+    <button class="btn btn-gold" id="open-rec-form">+ Add Record</button>
+  </div>
+
+  <div id="rec-form" style="display:none;margin-bottom:20px">
+    <div class="card">
+      <div class="card-head"><div class="card-title">Upload New Record</div></div>
+      <div class="card-pad" style="display:flex;flex-direction:column;gap:10px">
+        <input class="inp" id="rf-name" placeholder="Document name"/>
+        <div style="display:flex;gap:10px">
+          <select class="sel" id="rf-type" style="flex:1"><option value="pdf">PDF</option><option value="img">Image</option><option value="doc">Document</option></select>
+          <input class="inp" id="rf-date" type="date" style="flex:1"/>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-gold" id="save-rec-btn">Save</button>
+          <button class="btn btn-outline" id="close-rec-form">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rec-wrap"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: THERAPY SESSIONS
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-therapy">
+  <div class="grad-header grad-therapy">
+    <div class="grad-title">🫀 Therapy Sessions</div>
+    <div class="grad-sub">Schedule, notes, and therapist coordination</div>
+    <div class="grad-meta">
+      <div class="grad-meta-item">📅 <strong>2</strong> upcoming sessions</div>
+      <div class="grad-meta-item">✓ <strong>14</strong> completed total</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <div>
+      <div class="sec-lbl">UPCOMING SESSIONS</div>
+      <div class="sess-card">
+        <div class="sess-head">
+          <div><div class="sess-title">Physiotherapy — Dr. Priya Mehta</div><div class="sess-time">📅 Thursday, Mar 5 · 10:00 AM · 45 min</div></div>
+          <span class="badge badge-rose">Confirmed</span>
+        </div>
+        <div style="font-size:12px;color:var(--txt2);line-height:1.5;margin-bottom:10px">Goals: Progressive weight-bearing exercises, wheelchair transfer practice, core strengthening assessment.</div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-outline btn-sm">Add Notes</button>
+          <button class="btn btn-outline btn-sm">Reschedule</button>
+        </div>
+      </div>
+      <div class="sess-card">
+        <div class="sess-head">
+          <div><div class="sess-title">Neurological Check — Dr. Anand Kumar</div><div class="sess-time">📅 Friday, Mar 6 · 03:00 PM · 30 min</div></div>
+          <span class="badge badge-amber">Pending</span>
+        </div>
+        <div style="font-size:12px;color:var(--txt2);line-height:1.5;margin-bottom:10px">Routine neurological assessment and sensation mapping. Bring previous scan reports.</div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-outline btn-sm">Confirm</button>
+          <button class="btn btn-outline btn-sm">Reschedule</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Therapist contacts -->
+    <div>
+      <div class="sec-lbl">CARE TEAM</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="card card-pad" style="display:flex;align-items:center;gap:14px">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--rose),#F08098);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0">PM</div>
+          <div style="flex:1">
+            <div style="font-size:14px;font-weight:600;color:var(--txt1)">Dr. Priya Mehta</div>
+            <div style="font-size:11px;color:var(--txt3)">Physiotherapist · AIIMS trained</div>
+          </div>
+          <button class="btn btn-gold btn-sm">Book</button>
+        </div>
+        <div class="card card-pad" style="display:flex;align-items:center;gap:14px">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#60A5FA);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0">DS</div>
+          <div style="flex:1">
+            <div style="font-size:14px;font-weight:600;color:var(--txt1)">Dr. Deepak Sharma</div>
+            <div style="font-size:11px;color:var(--txt3)">Spine Rehabilitation Specialist</div>
+          </div>
+          <button class="btn btn-gold btn-sm">Book</button>
+        </div>
+        <div class="card card-pad" style="display:flex;align-items:center;gap:14px">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--violet),#A880F0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0">AK</div>
+          <div style="flex:1">
+            <div style="font-size:14px;font-weight:600;color:var(--txt1)">Dr. Anand Kumar</div>
+            <div style="font-size:11px;color:var(--txt3)">Neurologist</div>
+          </div>
+          <button class="btn btn-gold btn-sm">Book</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pain journal -->
+  <div class="card">
+    <div class="card-head"><div class="card-title">Pain & Sensation Journal</div><div class="card-sub">Daily log for clinical review</div></div>
+    <div class="card-pad">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:8px">Today's pain level (1–10)</div>
+          <div class="pain-scale" id="journal-pain"></div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:8px">Sensation status</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm sensation-btn">Normal</button>
+            <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm sensation-btn">Tingling</button>
+            <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm sensation-btn">Numbness</button>
+            <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm sensation-btn">Spasm</button>
+          </div>
+        </div>
+      </div>
+      <textarea class="inp" rows="3" placeholder="Describe today's pain, triggers, or improvements… (shared with Dr. Mehta)" style="resize:none;margin-bottom:10px"></textarea>
+      <button class="btn btn-gold">Save Journal Entry</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: ACHIEVEMENTS
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-achievements">
+  <div class="grad-header grad-dashboard" style="background:linear-gradient(135deg,#4A3000,#EAAC57)">
+    <div class="grad-title">🏆 Achievements</div>
+    <div class="grad-sub">Your recovery and academic milestones</div>
+  </div>
+
+  <!-- Level card -->
+  <div class="card" style="text-align:center;margin-bottom:20px">
+    <div style="padding:30px;background:linear-gradient(135deg,var(--gold-pale),rgba(241,218,114,0.1))">
+      <div style="width:76px;height:76px;border-radius:20px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 14px;box-shadow:0 4px 20px rgba(234,172,87,0.35)">🏆</div>
+      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:var(--txt1)" id="ach-level">Level 1</div>
+      <div style="font-size:13px;color:var(--txt2);margin-top:4px;margin-bottom:16px" id="ach-pts">0 total points</div>
+      <div style="max-width:400px;margin:0 auto">
+        <div class="prog-bg" style="height:10px"><div class="prog-fill" id="ach-bar" style="width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));height:100%"></div></div>
+        <div style="font-size:12px;color:var(--txt3);margin-top:8px" id="ach-cap">100 pts to next level</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">🔒 Locked Badges (<span id="locked-cnt">8</span>)</div>
+  <div class="grid-2" id="badges-wrap" style="margin-top:12px"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: SETTINGS
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-settings">
+  <div class="grad-header grad-settings">
+    <div class="grad-title">⚙ Settings</div>
+    <div class="grad-sub">Profile, accessibility, notifications, and medical information</div>
+  </div>
+
+  <div class="grid-2">
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <!-- Profile -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">Profile</div><button class="btn btn-outline btn-sm">Edit</button></div>
+        <div class="card-pad" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-lt));display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--navy-deep)">YS</div>
+            <div><div style="font-size:16px;font-weight:600;color:var(--txt1)">Yug Suhagiya</div><div style="font-size:12px;color:var(--txt3)">B24CS1073 · CSE, IIT Jodhpur</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="padding:9px 12px;background:var(--surface2);border-radius:9px"><div style="font-size:10px;color:var(--txt3)">Email</div><div style="font-size:12px;color:var(--txt1)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b39696f38286a6b6c681b32322f31753a38753235">[email&#160;protected]</a></div></div>
+            <div style="padding:9px 12px;background:var(--surface2);border-radius:9px"><div style="font-size:10px;color:var(--txt3)">Recovery Week</div><div style="font-size:12px;color:var(--txt1)">Week 9 of 52</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medical info -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">Medical Information</div></div>
+        <div class="card-pad" style="display:flex;flex-direction:column;gap:8px">
+          <div style="padding:9px 12px;background:var(--rose-lt);border-radius:9px;border-left:3px solid var(--rose)"><div style="font-size:10px;color:var(--rose);font-weight:600">Diagnosis</div><div style="font-size:12px;color:var(--txt1);margin-top:2px">Incomplete Spinal Cord Injury — L2 level</div></div>
+          <div style="padding:9px 12px;background:var(--surface2);border-radius:9px"><div style="font-size:10px;color:var(--txt3);font-weight:600">Medications</div><div style="font-size:12px;color:var(--txt1);margin-top:2px">Baclofen 10mg · Vitamin D 2000IU · Aspirin 75mg</div></div>
+          <div style="padding:9px 12px;background:var(--gold-pale);border-radius:9px"><div style="font-size:10px;color:var(--gold);font-weight:600">Allergies</div><div style="font-size:12px;color:var(--txt1);margin-top:2px">Penicillin · Latex</div></div>
+          <div style="padding:9px 12px;background:var(--surface2);border-radius:9px"><div style="font-size:10px;color:var(--txt3);font-weight:600">Emergency Contact</div><div style="font-size:12px;color:var(--txt1);margin-top:2px">Ramesh Suhagiya · +91 98765 43210</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <!-- Accessibility -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">♿ Accessibility</div></div>
+        <div class="card-pad">
+          <div class="toggle-wrap">
+            <div><div class="toggle-lbl">High Contrast Mode</div><div class="toggle-desc">Increases contrast for better readability</div></div>
+            <button class="toggle" id="t-contrast"></button>
+          </div>
+          <div class="toggle-wrap">
+            <div><div class="toggle-lbl">Reduced Motion</div><div class="toggle-desc">Disables animations for accessibility</div></div>
+            <button class="toggle" id="t-motion"></button>
+          </div>
+          <div class="toggle-wrap" style="border-bottom:none">
+            <div><div class="toggle-lbl">Dark Mode</div><div class="toggle-desc">Switch to dark colour scheme</div></div>
+            <button class="toggle" id="t-dark"></button>
+          </div>
+          <div style="margin-top:16px">
+            <div style="font-size:12px;font-weight:600;color:var(--txt2);margin-bottom:8px">Font Size</div>
+            <div style="display:flex;gap:6px">
+              <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm font-btn" data-size="sm">A-</button>
+              <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm font-btn" data-size="md">A</button>
+              <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm font-btn" data-size="lg">A+</button>
+              <button class="btn btn-outline btn-sm" class="btn btn-outline btn-sm font-btn" data-size="xl">A++</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification settings -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">🔔 Notifications</div></div>
+        <div class="card-pad">
+          <div class="toggle-wrap">
+            <div><div class="toggle-lbl">Physio Reminders</div><div class="toggle-desc">30 min before each session</div></div>
+            <button class="toggle on"></button>
+          </div>
+          <div class="toggle-wrap">
+            <div><div class="toggle-lbl">Habit Reminders</div><div class="toggle-desc">Daily at 8:00 AM</div></div>
+            <button class="toggle notif-toggle on"></button>
+          </div>
+          <div class="toggle-wrap">
+            <div><div class="toggle-lbl">Assignment Deadlines</div><div class="toggle-desc">24 hrs before due date</div></div>
+            <button class="toggle notif-toggle on"></button>
+          </div>
+          <div class="toggle-wrap" style="border-bottom:none">
+            <div><div class="toggle-lbl">Streak Alerts</div><div class="toggle-desc">Notify if streak at risk</div></div>
+            <button class="toggle notif-toggle on"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════════════════════════════════════
+     PAGE: FEEDBACK
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-feedback">
+  <div class="grad-header" style="background:linear-gradient(135deg,#0A4A40,#2DB89A)">
+    <div class="grad-title">💬 Feedback</div>
+    <div class="grad-sub">Share your experience, report issues, or suggest improvements</div>
+    <div class="grad-meta">
+      <div class="grad-meta-item">📝 <strong>3</strong> feedback submitted</div>
+      <div class="grad-meta-item">✅ <strong>2</strong> resolved</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <!-- Submit new feedback -->
+    <div class="card">
+      <div class="card-head"><div class="card-title">Submit Feedback</div><div class="card-sub">Your voice helps us improve IRHLMS</div></div>
+      <div class="card-pad" style="display:flex;flex-direction:column;gap:14px">
+
+        <!-- Category chips -->
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Category</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" id="fb-cats">
+            <button class="fb-cat-btn active" data-cat="general">💬 General</button>
+            <button class="fb-cat-btn" data-cat="recovery">💪 Recovery</button>
+            <button class="fb-cat-btn" data-cat="academic">📚 Academic</button>
+            <button class="fb-cat-btn" data-cat="bug">🐛 Bug Report</button>
+            <button class="fb-cat-btn" data-cat="feature">✨ Feature Request</button>
+            <button class="fb-cat-btn" data-cat="accessibility">♿ Accessibility</button>
+          </div>
+        </div>
+
+        <!-- Type: Positive / Negative / Suggestion -->
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Type</div>
+          <div style="display:flex;gap:8px">
+            <button class="fb-type-btn active" data-type="positive" style="border-color:var(--emerald)">👍 Positive</button>
+            <button class="fb-type-btn" data-type="negative">👎 Issue</button>
+            <button class="fb-type-btn" data-type="suggestion">💡 Suggestion</button>
+          </div>
+        </div>
+
+        <!-- Rating stars -->
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Overall Rating</div>
+          <div style="display:flex;gap:6px" id="star-row">
+            <span class="star-btn" data-v="1" style="font-size:26px;cursor:pointer;transition:transform .15s">⭐</span>
+            <span class="star-btn" data-v="2" style="font-size:26px;cursor:pointer;transition:transform .15s">⭐</span>
+            <span class="star-btn" data-v="3" style="font-size:26px;cursor:pointer;transition:transform .15s">⭐</span>
+            <span class="star-btn" data-v="4" style="font-size:26px;cursor:pointer;transition:transform .15s">⭐</span>
+            <span class="star-btn" data-v="5" style="font-size:26px;cursor:pointer;transition:transform .15s">⭐</span>
+          </div>
+          <div style="font-size:11px;color:var(--txt3);margin-top:5px" id="star-msg">Tap a star to rate</div>
+        </div>
+
+        <!-- Title -->
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Title</div>
+          <input class="inp" id="fb-title" placeholder="Briefly summarise your feedback…"/>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Message</div>
+          <textarea class="inp" id="fb-msg" rows="4" placeholder="Describe your feedback in detail — what worked well, what didn't, or what you'd like to see…" style="resize:none"></textarea>
+        </div>
+
+        <!-- Anonymous toggle -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--txt1)">Submit Anonymously</div>
+            <div style="font-size:11px;color:var(--txt3)">Your name will not be attached to this feedback</div>
+          </div>
+          <button class="toggle" id="fb-anon"></button>
+        </div>
+
+        <button class="btn btn-teal" id="submit-fb-btn" style="width:100%;justify-content:center;padding:12px">Submit Feedback</button>
+      </div>
+    </div>
+
+    <!-- Right: Summary + previous -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <!-- Satisfaction summary -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">Platform Satisfaction</div><div class="card-sub">Based on all submitted feedback</div></div>
+        <div class="card-pad">
+          <div style="text-align:center;padding:16px 0 20px">
+            <div style="font-family:'Fraunces',serif;font-size:52px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1">4.2</div>
+            <div style="font-size:14px;color:var(--txt2);margin-top:6px">⭐⭐⭐⭐☆</div>
+            <div style="font-size:11px;color:var(--txt3);margin-top:4px">Based on 3 reviews</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px"><div style="font-size:11px;color:var(--txt2);width:20px">5⭐</div><div class="prog-bg" style="flex:1"><div class="prog-fill" style="width:60%;background:var(--emerald)"></div></div><div style="font-size:11px;color:var(--txt3);width:24px">60%</div></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="font-size:11px;color:var(--txt2);width:20px">4⭐</div><div class="prog-bg" style="flex:1"><div class="prog-fill" style="width:25%;background:var(--teal)"></div></div><div style="font-size:11px;color:var(--txt3);width:24px">25%</div></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="font-size:11px;color:var(--txt2);width:20px">3⭐</div><div class="prog-bg" style="flex:1"><div class="prog-fill" style="width:10%;background:var(--amber)"></div></div><div style="font-size:11px;color:var(--txt3);width:24px">10%</div></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="font-size:11px;color:var(--txt2);width:20px">2⭐</div><div class="prog-bg" style="flex:1"><div class="prog-fill" style="width:5%;background:var(--rose)"></div></div><div style="font-size:11px;color:var(--txt3);width:24px">5%</div></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="font-size:11px;color:var(--txt2);width:20px">1⭐</div><div class="prog-bg" style="flex:1"><div class="prog-fill" style="width:0%"></div></div><div style="font-size:11px;color:var(--txt3);width:24px">0%</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px">
+            <div style="text-align:center;padding:10px;background:var(--emerald-lt);border-radius:9px"><div style="font-size:16px;font-weight:700;color:var(--emerald)">2</div><div style="font-size:10px;color:var(--txt3)">Positive</div></div>
+            <div style="text-align:center;padding:10px;background:var(--rose-lt);border-radius:9px"><div style="font-size:16px;font-weight:700;color:var(--rose)">1</div><div style="font-size:10px;color:var(--txt3)">Issues</div></div>
+            <div style="text-align:center;padding:10px;background:var(--blue-lt);border-radius:9px"><div style="font-size:16px;font-weight:700;color:var(--blue)">0</div><div style="font-size:10px;color:var(--txt3)">Pending</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Previous submissions -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">Your Submissions</div><div class="card-sub">Past feedback history</div></div>
+        <div id="fb-history" style="display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border)">
+            <div style="width:34px;height:34px;border-radius:9px;background:var(--emerald-lt);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">👍</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500;color:var(--txt1)">Recovery tracker is very helpful</div>
+              <div style="font-size:11px;color:var(--txt3);margin-top:2px">General · Feb 20, 2026 · ⭐⭐⭐⭐⭐</div>
+            </div>
+            <span class="badge badge-green">Resolved</span>
+          </div>
+          <div style="display:flex;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border)">
+            <div style="width:34px;height:34px;border-radius:9px;background:var(--blue-lt);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">💡</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500;color:var(--txt1)">Add dark mode for night use</div>
+              <div style="font-size:11px;color:var(--txt3);margin-top:2px">Feature Request · Feb 18, 2026 · ⭐⭐⭐⭐</div>
+            </div>
+            <span class="badge badge-green">Done</span>
+          </div>
+          <div style="display:flex;gap:12px;padding:14px 20px">
+            <div style="width:34px;height:34px;border-radius:9px;background:var(--rose-lt);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🐛</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500;color:var(--txt1)">Timer resets unexpectedly on mobile</div>
+              <div style="font-size:11px;color:var(--txt3);margin-top:2px">Bug Report · Feb 15, 2026 · ⭐⭐⭐</div>
+            </div>
+            <span class="badge badge-amber">In Review</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════ -->
+
+</body>
+</html>
