@@ -1,0 +1,215 @@
+﻿#page-achievements .ach-hero-card {
+  border-color: rgba(234, 172, 87, 0.32);
+  background: linear-gradient(180deg, var(--surface), rgba(234, 172, 87, 0.05));
+}
+
+#page-achievements .ach-hero-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#page-achievements .ach-hero-icon {
+  width: 74px;
+  height: 74px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  color: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+#page-achievements .ach-hero-level {
+  font-family: var(--font-display);
+  font-size: 31px;
+  line-height: 1.1;
+  color: var(--txt1);
+}
+
+#page-achievements .ach-hero-points {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--txt2);
+}
+
+#page-achievements .ach-hero-progress {
+  margin-top: 16px;
+}
+
+#page-achievements .ach-hero-progress .prog-bg {
+  height: 10px;
+}
+
+#page-achievements .ach-hero-caption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--txt3);
+}
+
+#page-achievements .ach-summary-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#page-achievements .ach-summary-card {
+  border: 1px solid rgba(234, 172, 87, 0.30);
+  background: rgba(234, 172, 87, 0.08);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+#page-achievements .ach-summary-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a6d2f;
+  font-weight: 700;
+}
+
+#page-achievements .ach-summary-value {
+  margin-top: 4px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--txt1);
+  font-weight: 700;
+}
+
+#page-achievements .ach-summary-value.ach-next {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+#page-achievements .ach-filter-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0 14px;
+}
+
+#page-achievements .ach-filter-btn {
+  border: 1px solid rgba(234, 172, 87, 0.42);
+  background: rgba(234, 172, 87, 0.12);
+  color: #8b4c00;
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--tr);
+}
+
+#page-achievements .ach-filter-btn:hover {
+  background: rgba(234, 172, 87, 0.22);
+}
+
+#page-achievements .ach-filter-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+#page-achievements .ach-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#page-achievements .ach-badge-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: border-color var(--tr), box-shadow var(--tr), transform var(--tr);
+}
+
+#page-achievements .ach-badge-card.unlocked {
+  border-color: rgba(234, 172, 87, 0.48);
+  box-shadow: 0 6px 20px rgba(234, 172, 87, 0.14);
+}
+
+#page-achievements .ach-badge-card.locked {
+  opacity: 0.8;
+}
+
+#page-achievements .ach-badge-card:hover {
+  transform: translateY(-1px);
+}
+
+#page-achievements .ach-badge-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+#page-achievements .ach-badge-card.unlocked .ach-badge-icon {
+  background: var(--gold-pale);
+  color: #8b4c00;
+}
+
+#page-achievements .ach-badge-card.locked .ach-badge-icon {
+  background: var(--surface2);
+  color: var(--txt3);
+}
+
+#page-achievements .ach-badge-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--txt1);
+}
+
+#page-achievements .ach-badge-desc {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--txt3);
+  line-height: 1.4;
+}
+
+#page-achievements .ach-badge-foot {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#page-achievements .ach-progress-note {
+  font-size: 11px;
+  color: var(--txt3);
+}
+
+#page-achievements .ach-empty {
+  grid-column: 1 / -1;
+  border: 1px dashed rgba(234, 172, 87, 0.44);
+  border-radius: 12px;
+  background: rgba(234, 172, 87, 0.08);
+  color: #8b4c00;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  #page-achievements .ach-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #page-achievements .ach-badge-grid {
+    grid-template-columns: 1fr;
+  }
+}

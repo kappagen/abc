@@ -146,8 +146,18 @@ export const initialState = {
     { id: 3, name: 'Physiotherapy Prescription', type: 'doc', date: '2026-01-05' },
     { id: 4, name: 'Discharge Summary', type: 'pdf', date: '2025-12-20' }
   ],
+  physio: {
+    exercises: [
+      { id: 'ex-1', name: 'Leg Strengthening', time: '08:00 AM', details: '3 x 12 reps | Resistance band', done: true },
+      { id: 'ex-2', name: 'Core Stability Circuit', time: '12:30 PM', details: 'Plank 30s x 3 | Bridge 15 x 3', done: true },
+      { id: 'ex-3', name: 'Upper Body Stretch', time: '06:00 PM', details: '20 min flexibility routine', done: false }
+    ],
+    weeklyLog: { mon: 2, tue: 2, wed: 1, thu: 3, fri: 2, sat: 3, sun: 1 },
+    weekHistory: [11, 13, 12],
+    activeWeek: '2026-W11'
+  },
   theme: 'light',
-  feedback: { rating: 0, submissions: [] }
+  feedback: { rating: 0, category: 'general', type: 'positive', anonymous: false, submissions: [] }
 };
 
 export const store = new Store(initialState);

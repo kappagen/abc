@@ -13,6 +13,7 @@ import { MedicalPage }        from '../pages/medical/medical.js';
 import { TherapyPage }        from '../pages/therapy/therapy.js';
 import { AchievementsPage }   from '../pages/achievements/achievements.js';
 import { FeedbackPage }       from '../pages/feedback/feedback.js';
+import { SettingsPage }       from '../pages/settings/settings.js';
 
 const router = new Router();
 const theme = new ThemeManager();
@@ -30,6 +31,7 @@ const navbar = new Navbar({
   onSettingsClick: () => {
     router.go('settings');
     sidebar.setActive('settings');
+    pageHandlers.settings?.();
   }
 });
 
@@ -41,7 +43,8 @@ const pageHandlers = {
   medical: () => MedicalPage.init(store),
   therapy: () => TherapyPage.init(),
   achievements: () => AchievementsPage.init(store),
-  feedback: () => FeedbackPage.init(store)
+  feedback: () => FeedbackPage.init(store),
+  settings: () => SettingsPage.init()
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -60,10 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5 - Sidebar
   sidebar.init();
 
-  // 6 - Generic notification toggles
-  document.querySelectorAll('.notif-toggle').forEach((toggle) => {
-    toggle.addEventListener('click', () => toggle.classList.toggle('on'));
-  });
+  // 6 - Settings controls
+  SettingsPage.init();
 
   // 7 - Fire animation keyframe injection
   const style = document.createElement('style');

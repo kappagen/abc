@@ -273,6 +273,14 @@
 
 .physio-log-card { overflow:visible; }
 .physio-log-card .card-pad { overflow:visible; }
+.physio-log-grid { display:grid; grid-template-columns:2fr 1.3fr 1fr; gap:10px; }
+.week-progress-list { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+.day-progress-row { display:grid; grid-template-columns:30px 1fr 26px; align-items:center; gap:8px; }
+.day-label { font-size:11px; color:var(--txt3); font-weight:600; }
+.day-track { height:8px; border-radius:999px; background:var(--border); overflow:hidden; }
+.day-progress { height:100%; width:0%; border-radius:999px; background:linear-gradient(90deg,var(--emerald),#63c77d); transition:width var(--tr); }
+.day-value { font-size:11px; color:var(--txt2); text-align:right; font-weight:600; }
+.weekly-chart-wrap { position:relative; height:190px; margin-bottom:8px; }
 .time-picker { position:relative; }
 .time-picker-input { padding-right:42px; }
 .time-picker-trigger {
@@ -299,6 +307,165 @@
 }
 .time-picker-item:hover { background:rgba(124,92,191,.10); color:var(--violet); }
 .time-picker-item.active { background:var(--violet-lt); color:var(--violet); font-weight:700; }
+.ex-item:focus-visible { outline:2px solid var(--emerald); outline-offset:2px; }
+.ex-check.has-input::after { content:none; }
+.ex-item.done .ex-check.has-input { background:var(--surface); border-color:rgba(52,168,83,.35); }
+.ex-complete-check { width:15px; height:15px; accent-color:var(--emerald); cursor:pointer; }
+#page-settings [data-size].active {
+  background: rgba(58, 79, 96, 0.12);
+  border-color: #3A4F60;
+  color: #3A4F60;
+}
+#page-settings .settings-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#page-settings .grad-settings {
+  background: linear-gradient(135deg, var(--navy), #3A4F60);
+}
+#page-settings .card-title {
+  font-size: 1rem;
+}
+#page-settings .toggle.on { background: #3A4F60; }
+#page-settings .toggle-wrap {
+  padding: 0.78rem 0;
+}
+#page-settings .toggle-lbl {
+  font-size: 0.92rem;
+}
+#page-settings .toggle-desc {
+  font-size: 0.78rem;
+}
+#page-settings .btn-teal {
+  background: #3A4F60;
+  color: #fff;
+}
+#page-settings .btn-teal:hover { filter: brightness(1.05); }
+#page-settings .btn {
+  font-size: 0.88rem;
+}
+#page-settings .btn-sm {
+  font-size: 0.84rem;
+}
+#page-settings .btn-outline:hover {
+  border-color: #3A4F60;
+  color: #3A4F60;
+  background: rgba(58, 79, 96, 0.08);
+}
+#page-settings .inp:focus { border-color: #3A4F60; }
+#page-settings .inp {
+  font-size: 0.88rem;
+}
+#page-settings .settings-profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#page-settings .settings-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.88rem;
+}
+#page-settings .settings-profile-avatar {
+  width: 3.63rem;
+  height: 3.63rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+}
+#page-settings .settings-profile-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--txt1);
+}
+#page-settings .settings-profile-meta {
+  font-size: 0.81rem;
+  color: var(--txt3);
+}
+#page-settings .settings-profile-form { display:flex; flex-direction:column; gap:10px; }
+#page-settings .settings-profile-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+#page-settings .settings-profile-actions { display:flex; gap:10px; }
+#page-settings .settings-medical-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+#page-settings .settings-medical-stack { display:flex; flex-direction:column; gap:8px; }
+#page-settings .settings-medical-list { display:flex; flex-direction:column; gap:12px; }
+#page-settings .settings-medical-group { display:flex; flex-direction:column; gap:8px; }
+#page-settings .settings-medical-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#page-settings .settings-medical-meta {
+  font-size: 0.74rem;
+  color: var(--txt3);
+}
+#page-settings .settings-medical-delete-btn {
+  border-color: rgba(58, 79, 96, 0.5);
+  color: #3A4F60;
+  padding: 5px 10px;
+}
+#page-settings .settings-medical-delete-btn:hover {
+  border-color: #3A4F60;
+  background: rgba(58, 79, 96, 0.12);
+  color: #3A4F60;
+}
+#page-settings .settings-medical-item {
+  padding:9px 12px;
+  background: rgba(58, 79, 96, 0.10);
+  border-radius:9px;
+  border-left:3px solid #3A4F60;
+}
+#page-settings .settings-medical-label {
+  font-size:0.66rem;
+  color:#3A4F60;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+#page-settings .settings-medical-value {
+  font-size:0.83rem;
+  color:var(--txt1);
+  margin-top:2px;
+  line-height:1.45;
+}
+#page-settings .settings-medical-updated {
+  font-size:0.75rem;
+  color:var(--txt3);
+  padding:2px 2px 0;
+}
+#page-settings .settings-medical-form { display:flex; flex-direction:column; gap:10px; }
+#page-settings .settings-medical-empty {
+  padding: 12px;
+  border: 1px dashed rgba(58, 79, 96, 0.34);
+  border-radius: 10px;
+  background: rgba(58, 79, 96, 0.06);
+  font-size: 0.82rem;
+  color: var(--txt3);
+  text-align: center;
+}
+#page-settings .settings-fontsize-wrap {
+  margin-top: 1rem;
+}
+#page-settings .settings-fontsize-title {
+  font-size: 0.81rem;
+  font-weight: 600;
+  color: var(--txt2);
+  margin-bottom: 0.5rem;
+}
+#page-settings .settings-fontsize-btns {
+  display: flex;
+  gap: 0.38rem;
+}
 
 #page-therapy .grad-therapy {
   background: linear-gradient(120deg, #6f1b36, #c55570);
@@ -612,6 +779,11 @@
 @media(max-width:800px) {
   .courses-summary-grid,.courses-grid { grid-template-columns:1fr; }
   .course-title { font-size:18px; }
+  .physio-log-grid { grid-template-columns:1fr; }
+  #page-settings .settings-profile-grid { grid-template-columns:1fr; }
+  #page-settings .settings-profile-actions { flex-direction:column; }
+  .day-progress-row { grid-template-columns:28px 1fr 24px; gap:7px; }
+  .weekly-chart-wrap { height:170px; }
   .time-picker-panel { width:min(220px,calc(100vw - 70px)); }
   #page-therapy .therapy-hero { padding: 24px 20px; border-radius: 20px; }
   #page-therapy .therapy-session-card,
